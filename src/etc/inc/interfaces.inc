@@ -6785,6 +6785,10 @@ function is_jumbo_capable($iface) {
 	if (substr($iface, 0, 4) == "lagg") {
 		return true;
 	}
+	
+	// hack for Xen xn interfaces
+	if (substr($iface, 0, 2) == "xn")
+			return true;
 
 	return false;
 }
